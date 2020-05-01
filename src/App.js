@@ -1,17 +1,17 @@
 import React from "react";
-import logo from "./logo.svg";
+//import logo from "./logo.svg";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import DiscoverMoviesPage from "./pages/DiscoverMoviesPage";
 import { NavLink } from "react-router-dom";
-import NavBar from "./components/NavBar";
+// import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <div className="App">
-      <NavBar>
+      <nav>
         <NavLink
           exact={true}
           to="/discover"
@@ -20,7 +20,7 @@ function App() {
             color: "green",
           }}
         />
-      </NavBar>
+      </nav>
       <Switch>
         <Route path="/discover" component={DiscoverMoviesPage} />
         <Route path="/about" component={AboutPage} />
