@@ -4,23 +4,38 @@ import { Link } from "react-router-dom";
 
 export default function MovieList() {
   const [movies, setMovies] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [appState, setAppState] = useState("idle");
 
+  async function fetchMovies(userInputToSearch) {
+    console.log(userInputToSearch);
+    setAppState("searching...");
+    const response = await axios.get(
+      `http://www.omdbapi.com/?s=${userInputToSearch}&apikey=6d636986`
+    );
+
+    // console.log(response.data.Search);
+    // setMovies(response.data.Search);
+    setMovies(response.data.Search);
+    setAppState("Done");
+  }
+
+  // fetchMovies();
   useEffect(() => {
-    async function fetchMovies() {
-      const response = await axios.get(
-        `http://www.omdbapi.com/?s=star+wars&plot=full&apikey=6d636986`
-      );
-
-      console.log(response.data.Search);
-      setMovies(response.data.Search);
-    }
-
-    fetchMovies();
+    fetchMovies("star wars");
   }, []);
 
-  console.log("MOVIES", movies);
+  // console.log("MOVIES", movies);
+
+  if (appState === "searching...") {
+    return <h1>Searching Movies</h1>;
+  }
   return (
     <div>
+      <p>{appState}</p>
+      <label>Search</label>
+      <input onChange={(event) => setSearchTerm(event.target.value)} />
+      <button onClick={() => fetchMovies(searchTerm)}>search</button>
       {movies.map((movie) => {
         console.log(movie);
         return (

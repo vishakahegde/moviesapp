@@ -8,6 +8,7 @@ import {
   NavLink,
 } from "react-router-dom";
 import MovieList from "./pages/MovieList";
+import MovieDetails from "./pages/MovieDetails";
 
 function App() {
   return (
@@ -37,7 +38,9 @@ function App() {
 
         <header className="App-header">
           <Switch>
-            <Route path="/movies/:imdbID">Testing!</Route>
+            <Route path="/movies/:imdbID">
+              <MovieDetails />
+            </Route>
             <Route exact path="/movies">
               <MovieList />
             </Route>
