@@ -11,7 +11,7 @@ export default function MovieList() {
     console.log(userInputToSearch);
     setAppState("searching...");
     const response = await axios.get(
-      `http://www.omdbapi.com/?s=${userInputToSearch}&apikey=6d636986`
+      `https://www.omdbapi.com/?s=${userInputToSearch}&apikey=6d636986`
     );
 
     // console.log(response.data.Search);

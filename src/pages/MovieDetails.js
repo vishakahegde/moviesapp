@@ -12,7 +12,7 @@ export default function MovieDetails() {
     async function fetchMovieById(imdbID) {
       console.log("ID :", imdbID);
       const response = await axios.get(
-        `http://www.omdbapi.com/?i=${imdbID}&plot=full&apikey=6d636986`
+        `https://www.omdbapi.com/?i=${imdbID}&plot=full&apikey=6d636986`
       );
     }
     fetchMovieById(routeParameters.imdbID);
