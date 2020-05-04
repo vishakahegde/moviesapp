@@ -18,7 +18,7 @@ function App() {
           <NavLink
             activeStyle={{
               fontWeight: "bold",
-              color: "red",
+              color: "Purple",
             }}
             to="/"
             exact
@@ -28,7 +28,7 @@ function App() {
           <NavLink
             activeStyle={{
               fontWeight: "bold",
-              color: "green",
+              color: "blue",
             }}
             to="/movies"
           >
