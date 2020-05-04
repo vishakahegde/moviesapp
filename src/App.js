@@ -1,32 +1,51 @@
 import React from "react";
-//import logo from "./logo.svg";
+import logo from "./logo.svg";
 import "./App.css";
-import { Switch, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import DiscoverMoviesPage from "./pages/DiscoverMoviesPage";
-import { NavLink } from "react-router-dom";
-// import NavBar from "./components/NavBar";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <nav>
-        <NavLink
-          exact={true}
-          to="/discover"
-          activeStyle={{
-            fontWeight: "bold",
-            color: "green",
-          }}
-        />
-      </nav>
-      <Switch>
-        <Route path="/discover" component={DiscoverMoviesPage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/" component={HomePage} />
-      </Switch>
-    </div>
+    <Router>
+      <div className="App">
+        <nav>
+          <NavLink
+            activeStyle={{
+              fontWeight: "bold",
+              color: "red",
+            }}
+            to="/"
+            exact
+          >
+            Home
+          </NavLink>
+          <NavLink
+            activeStyle={{
+              fontWeight: "bold",
+              color: "green",
+            }}
+            to="/movies"
+          >
+            Movies
+          </NavLink>
+        </nav>
+
+        <header className="App-header">
+          <Switch>
+            <Route path="/movies">
+              <h1>Movies to Watch</h1>
+            </Route>
+            <Route exact path="/">
+              <h1>My App!</h1>
+            </Route>
+          </Switch>
+        </header>
+      </div>
+    </Router>
   );
 }
 
