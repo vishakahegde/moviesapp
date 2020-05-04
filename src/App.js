@@ -46,6 +46,7 @@ function App() {
             </Route>
             <Route exact path="/">
               <h1>My App!</h1>
+              <p>Enjoy movies for free</p>
             </Route>
           </Switch>
         </header>

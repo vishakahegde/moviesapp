@@ -33,6 +33,7 @@ export default function MovieList() {
   return (
     <div>
       <p>{appState}</p>
+      <p>Below is the search button</p>
       <label>Search</label>
       <input onChange={(event) => setSearchTerm(event.target.value)} />
       <button onClick={() => fetchMovies(searchTerm)}>search</button>
