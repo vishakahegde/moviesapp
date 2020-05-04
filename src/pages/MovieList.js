@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function MovieList() {
   const [movies, setMovies] = useState([]);
@@ -26,6 +27,7 @@ export default function MovieList() {
           <div>
             <h4>{movie.Title}</h4>
             <img src={movie.Poster} />
+            <Link to={`/movies/${movies.imdbID}`}>View details</Link>
           </div>
         );
       })}

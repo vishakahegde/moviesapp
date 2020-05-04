@@ -37,7 +37,8 @@ function App() {
 
         <header className="App-header">
           <Switch>
-            <Route path="/movies">
+            <Route path="/movies/:imdbID">Testing!</Route>
+            <Route exact path="/movies">
               <MovieList />
             </Route>
             <Route exact path="/">
